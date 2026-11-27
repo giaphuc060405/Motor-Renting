@@ -46,8 +46,6 @@ export default function Login() {
         return <UnsupportedDevice />
     }
 
-
-
     return (
         <div className="min-h-screen flex flex-col">
             <main className="flex flex-1 flex-col max-w-dvh w-full mx-auto px-4 py-8 gap-30">
@@ -64,15 +62,17 @@ export default function Login() {
                         <input type="password" name="password" value={signInData.password} onChange={handleInputChange}
                         className="w-full border border-stone-900 rounded-lg px-3 py-2 text-black focus:outline-none" />
                     </div>
+                    <div className="mb-2">
                     {checkoutMutation.isError && (
-                        <div className="mb-4">
-                            <p className="text-xs italic text-red-700 min-h-8">Email hoặc mật khẩu không đúng</p>
-                        </div>
+                        
+                        <p className="text-xs italic text-red-700">Email hoặc mật khẩu không đúng</p>
+                        
                     )}
+                    </div>
                     <div className="mb-4 flex flex-col items-center">
-                        <button type="submit" disabled={checkoutMutation.isPending} className="w-[20%] py-3 bg-[#0068EF]
-                         text-white font-medium rounded-lg cursor-pointer text-center">
-                            {checkoutMutation.isPending ? "Đang xử lý" : "Đăng nhập"}
+                        <button type="submit" disabled={checkoutMutation.isPending} className="w-[20%] py-3 bg-[#0063e6] hover:bg-[#0051bb]
+                        disabled:bg-[#85b3f3]  text-white font-medium rounded-lg cursor-pointer text-center">
+                            {checkoutMutation.isPending ? "Đang xử lý..." : "Đăng nhập"}
                         </button>
                     </div>
                 
